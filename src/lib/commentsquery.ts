@@ -10,7 +10,7 @@ import {Comment} from "@prisma/client";
 };
 
 export const fetchCommentsByPostId = cache((postId:string): Promise<CommentWithUser[]>=>{
-    console.log("**************************");
+    // console.log("**************************");
 
     return  prisma.comment.findMany({
         where:{

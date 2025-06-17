@@ -19,7 +19,7 @@ function AuthHeader() {
       <Popover>
         <PopoverTrigger>
           <Avatar>
-            <AvatarImage src={session.user.image || ""} />
+            <AvatarImage src={session.user.image || ""}  className="cursor-pointer"/>
             <AvatarFallback>
               {session.user.name?.charAt(0).toUpperCase() ?? "?"}
             </AvatarFallback>

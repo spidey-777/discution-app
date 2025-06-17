@@ -28,12 +28,12 @@ function PostCreateFile({ slug }: CreatePostFormProps) {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button>New Post</Button>
+          <Button className="cursor-pointer">New Post</Button>
         </DialogTrigger>
         <DialogContent>
           <form action={action}>
             <DialogHeader>
-              <DialogTitle>Create a Post</DialogTitle>
+              <DialogTitle >Create a Post</DialogTitle>
               <DialogDescription>
                 Write a post and share your thoughts with others.
               </DialogDescription>

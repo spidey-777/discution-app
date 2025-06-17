@@ -21,7 +21,7 @@ function TopicCreateFile() {
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button>New Topic</Button>
+          <Button className="cursor-pointer">New Topic</Button>
         </DialogTrigger>
         <DialogContent>
           <form action={action}>

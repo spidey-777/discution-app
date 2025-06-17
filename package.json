@@ -11,6 +11,8 @@
   "dependencies": {
     "@auth/core": "^0.39.1",
     "@auth/prisma-adapter": "^2.9.1",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.3.0",
     "@prisma/client": "^6.9.0",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dialog": "^1.1.14",
