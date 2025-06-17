@@ -12,63 +12,66 @@ import { Button } from "@/components/ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { createTopic } from "@/actions/create-topic";
+import { createPost } from "@/actions/create-post";
 import { useActionState } from "react";
 
-function TopicCreateFile() {
-  const [formState, action] = useActionState(createTopic, { error: {} });
+type CreatePostFormProps = {
+  slug: string;
+};
+
+function PostCreateFile({ slug }: CreatePostFormProps) {
+  const [formState, action] = useActionState(createPost.bind(null, slug), {
+    errors: {},
+  });
+
   return (
     <div>
       <Dialog>
         <DialogTrigger asChild>
-          <Button>New Topic</Button>
+          <Button>New Post</Button>
         </DialogTrigger>
         <DialogContent>
           <form action={action}>
             <DialogHeader>
-              <DialogTitle>Create a Topic </DialogTitle>
+              <DialogTitle>Create a Post</DialogTitle>
               <DialogDescription>
-                write a new topic to discuss and share your thoughts with
-                others.
+                Write a post and share your thoughts with others.
               </DialogDescription>
             </DialogHeader>
             <div className="grid gap-4 py-4">
-              
-
               <div>
                 <Label htmlFor="title" className="text-sm font-medium mb-0.5">
                   Title
                 </Label>
                 <Input id="title" name="title" />
               </div>
-              {formState.error?.title && (
+              {formState.errors?.title && (
                 <p className="text-red-500 text-sm p-1 rounded">
-                  {formState.error.title[0]}
+                  {formState.errors.title[0]}
                 </p>
               )}
               <div>
                 <Label
-                  htmlFor="description"
+                  htmlFor="content"
                   className="text-sm font-medium mb-0.5"
                 >
-                  Description
+                  Content
                 </Label>
-                <Textarea id="description" name="description" />
+                <Textarea id="content" name="content" />
               </div>
-              {formState.error?.description && (
+              {formState.errors?.content && (
                 <p className="text-red-500 text-sm p-1 rounded">
-                  {formState.error.description[0]}
+                  {formState.errors.content[0]}
                 </p>
               )}
-
-              {formState.error?.formerror && (
+              {formState.errors?.formerror && (
                 <div className="bg-red-500 text-white text-sm p-1 rounded">
-                  {formState.error.formerror[0]}
+                  {formState.errors.formerror[0]}
                 </div>
               )}
             </div>
             <DialogFooter>
-              <Button type="submit" className="bg-black  text-white">
+              <Button type="submit" className="bg-black text-white">
                 Create
               </Button>
             </DialogFooter>
@@ -79,4 +82,4 @@ function TopicCreateFile() {
   );
 }
 
-export default TopicCreateFile;
+export default PostCreateFile;
