@@ -37,7 +37,7 @@ function TopicCreateFile() {
 
               <div>
                 <Label htmlFor="title" className="text-sm font-medium mb-0.5">
-                  Title
+                  Name
                 </Label>
                 <Input id="title" name="title" />
               </div>
